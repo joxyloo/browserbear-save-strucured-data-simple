@@ -8,7 +8,7 @@ const SAVE_STRUCTURED_DATA_STEP_ID = 'save_structured_data_step_id';
     // webhook_url: 'https://webhook.site/521cf880-fe8f-4285-889c-907a049a472e', // Option 1: Use a webhook to receive the result. Uncomment to use this option.
   };
 
-  // Trigger the Browserbear task
+  // Trigger the Roborabbit task
   const run = await runTask(JSON.stringify(data));
 
   //   pollResult(run); // Option 2: Query the result using API Polling. Uncomment to use this option.
@@ -36,7 +36,7 @@ function pollResult(run) {
 }
 
 async function runTask(body) {
-  const res = await fetch(`https://api.browserbear.com/v1/tasks/${TASK_UID}/runs`, {
+  const res = await fetch(`https://api.roborabbit.com/v1/tasks/${TASK_UID}/runs`, {
     method: 'POST',
     body: body,
     headers: {
@@ -49,7 +49,7 @@ async function runTask(body) {
 }
 
 async function getRun(runId) {
-  const res = await fetch(`https://api.browserbear.com/v1/tasks/${TASK_UID}/runs/${runId}`, {
+  const res = await fetch(`https://api.roborabbit.com/v1/tasks/${TASK_UID}/runs/${runId}`, {
     method: 'GET',
     headers: {
       Authorization: `Bearer ${API_KEY}`,
